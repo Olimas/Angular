@@ -1,36 +1,13 @@
-<input type="text" class="form-control" [(ngModel)]="carName">
-<button class="btn btn-primary" (click)="addCar()">Добавить машину</button>
-
-<p *ngIf="!addCarStatus; else successStatus">Машина не добавлена</p>
-<ng-template #successStatus>
-  <p >Машина добавлена</p>
-</ng-template>
-
+<p>Форма добавления машины</p>
+<app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
 <hr>
-<app-car *ngFor="let car of cars"></app-car>
+<button [disabled]="!(cars.length>0)" class="btn btn-success" (click)="changeCarName()">Изменить имя машины</button>
+<button [disabled]="!(cars.length>0)" class="btn btn-danger" (click)="deleteCar()">Удалить машину</button>
 <hr>
+<div class="list-group">
+  <app-car class="list-group-item" *ngFor="let car of cars" [carItem]="car" [name]="car!.name">
+    <h4 #carHeading class="list-group-item-heading">Название: {{car!.name}}</h4>
+    <h4 class="list-group-item-text">Год: {{car!.year || 'Неправильно введен год'}}</h4>
+  </app-car>
+</div>
 <hr>
-<ul>
-  <li *ngFor="let date of dates; let index = index">
-
-    <div>
-      <b>{{index + 1}}</b> - <i>{{date | uppercase}}</i>
-<!--      <b>{{index + 1}}</b> - <i>{{date | date: 'medium'}}</i>-->
-    </div>
-
-<!--    <div [ngStyle]="{'background-color': (index + 1) % 2 === 0 ? 'red' : 'green', 'color': 'white'}"-->
-<!--         [ngClass]="{'big-text': setBigCarText(car)}"-->
-<!--    >-->
-<!--      <b>{{index + 1}}</b> - <i>{{car}}</i>-->
-<!--    </div>-->
-  </li>
-
-<!--  <li *ngFor="let item of items; let index = index">-->
-<!--    <b>{{index + 1}}</b> - <i>{{item.name}}</i>-->
-<!--  </li>-->
-</ul>
-<hr>
-
-<!--<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">-->
-<!--<input type="text" class="form-control" [(ngModel)]="inputText">-->
-<!--<p>{{inputText}}</p>-->

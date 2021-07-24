@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-cars',
@@ -7,22 +7,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
-  // inputText = 'Default text';
-  carName = '';
-  addCarStatus = false;
-  cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada', 'Bentley'];
-  // items = [
-  //   {id: 1, name: 'item 1'},
-  //   {id: 2, name: 'item 2'},
-  //   {id: 3, name: 'item 3'},
-  // ]
-  dates = [
-    new Date(2015, 1, 5).toDateString(),
-    new Date(2016, 2, 6).toDateString(),
-    new Date(2017, 3, 7).toDateString(),
-    new Date(2018, 4, 8).toDateString(),
-    new Date(2019, 5, 9).toDateString(),
-  ]
+  cars: { name: string, year: number }[] = [
+    {name: 'Ford', year: 2014},
+    // {name: 'Audi', year: 2015},
+    // {name: 'BMW', year: 2016},
+    // {name: 'Mazda', year: 2017},
+    // {name: 'Lada', year: 2018},
+    // {name: 'Bentley', year: 2019},
+  ];
 
   constructor() {
   }
@@ -30,22 +22,15 @@ export class CarsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addCar() {
-    this.addCarStatus = true;
-    this.cars.push(this.carName);
-    this.carName = '';
+  updateCarList(car: { name: string, year: number }) {
+    this.cars.push(car);
   }
 
-
-
-  // setBigCarText(car: string) {
-  //   return car.length > 4 ? true : false;
-  // }
-
-  // onKeyUp(event: Event) {
-  //   // console.log(event);
-  //   this.inputText = (<HTMLInputElement>event.target).value;
-  // }
-
+  changeCarName() {
+    this.cars[0].name = 'New car name';
+  }
+  deleteCar() {
+    this.cars.splice(0, 1);
+  }
 
 }

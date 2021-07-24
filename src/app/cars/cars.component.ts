@@ -7,8 +7,22 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
-  addCarStatus = '';
-  inputText = 'Default text';
+  // inputText = 'Default text';
+  carName = '';
+  addCarStatus = false;
+  cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada', 'Bentley'];
+  // items = [
+  //   {id: 1, name: 'item 1'},
+  //   {id: 2, name: 'item 2'},
+  //   {id: 3, name: 'item 3'},
+  // ]
+  dates = [
+    new Date(2015, 1, 5).toDateString(),
+    new Date(2016, 2, 6).toDateString(),
+    new Date(2017, 3, 7).toDateString(),
+    new Date(2018, 4, 8).toDateString(),
+    new Date(2019, 5, 9).toDateString(),
+  ]
 
   constructor() {
   }
@@ -17,14 +31,21 @@ export class CarsComponent implements OnInit {
   }
 
   addCar() {
-    this.addCarStatus = 'Машина добавлена';
+    this.addCarStatus = true;
+    this.cars.push(this.carName);
+    this.carName = '';
   }
 
-  onKeyUp(event: Event) {
-    // console.log(event);
 
-    this.inputText = (<HTMLInputElement>event.target).value;
-  }
+
+  // setBigCarText(car: string) {
+  //   return car.length > 4 ? true : false;
+  // }
+
+  // onKeyUp(event: Event) {
+  //   // console.log(event);
+  //   this.inputText = (<HTMLInputElement>event.target).value;
+  // }
 
 
 }

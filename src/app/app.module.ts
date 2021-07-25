@@ -9,6 +9,9 @@ import {FormsModule} from '@angular/forms';
 import { AddCarComponent } from './add-car/add-car.component';
 import { OwnDirectiveComponent } from './own-directive/own-directive.component';
 import {BackgroundDirective} from './directives/background.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import {PowPipe} from './own-pipe/pow.pipe';
+import { CarFilterPipe } from './own-pipe/carFilter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import {BackgroundDirective} from './directives/background.directive';
     CarComponent,
     AddCarComponent,
     OwnDirectiveComponent,
-    BackgroundDirective
+    BackgroundDirective,
+    PipesComponent,
+    PowPipe,
+    CarFilterPipe
   ],
   imports: [
     BrowserModule,

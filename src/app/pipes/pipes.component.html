@@ -1,0 +1,67 @@
+<div class="container container-block">
+  <h2>Pipes</h2>
+  <div class="col-xs-8 col-xs-offset-2">
+    <hr>
+    <h3>own pipe</h3>
+    <hr>
+    <h4>{{num}} - без изменений</h4>
+    <h4>{{num | appPow:3:''}} - appPow:3</h4>
+    <h4>{{5 | appPow:5:''}} - appPow:5</h4>
+    <h4>{{5 | appPow:5:'='}} - appPow:5</h4>
+    <hr>
+    <h3>string</h3>
+    <hr>
+    <h4>{{name}} - без изменений</h4>
+    <h4>{{name | lowercase}} - lowercase</h4>
+    <h4>{{name | uppercase}} - uppercase</h4>
+    <h4>{{name | slice:0:3}} - slice:с какого символа:по какой символ - обрезка строки</h4>
+    <h4>{{name | slice:0:3 | uppercase}} - slice + uppercase</h4>
+    <hr>
+    <h3>number</h3>
+    <hr>
+    <h4>{{pi}} - без изменений</h4>
+    <h4>{{pi | number}} - number</h4>
+    <h4>{{pi | number:'1.3-4'}} - number:'1.3-4'</h4>
+    <h4>{{pi | number:'2.1-1'}} - number:'2.1-1'</h4>
+    <hr>
+    <h3>currency</h3>
+    <hr>
+    <h4>{{money}} - без изменений</h4>
+    <h4>{{money | currency}} - currency</h4>
+    <h4>{{money | currency:'EUR':false}} - currency:'EUR':false</h4>
+    <hr>
+    <h3>Date</h3>
+    <hr>
+    <h4>{{date}} - без изменений</h4>
+    <h4>{{date| date}} - date</h4>
+    <h4>{{date| date:'fullDate'}} - date:'fullDate'</h4>
+    <h4>{{date| date:'shortDate'}} - date:'shortDate'</h4>
+    <h4>{{date| date:'shortTime'}} - date:'shortTime'</h4>
+    <hr>
+    <h3>numbers => %</h3>
+    <hr>
+    <h4>{{amount}} - без изменений</h4>
+    <h4>{{amount | percent}} - percent</h4>
+    <hr>
+    <h3>for debugging</h3>
+    <hr>
+    <h4>{{object}} - без изменений</h4>
+    <h4>{{object | json}} - json</h4>
+    <pre>{{object | json}} - json + tag pre</pre>
+    <hr>
+  </div>
+  <div class="col-xs-8 col-xs-offset-2">
+    <h3>Data filter</h3>
+    <input type="text" placeholder="Введите название машины для поиска" class="form-control" [(ngModel)]="searchCar">
+    <button class="btn btn-primary" (click)="addCar()">Добавить машину</button>
+    <ul *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index" class="list-group">
+      <li class="list-group-item">
+        <b>{{i + 1}}</b> {{car.name}} {{car.year}} {{car.description}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-8 col-xs-offset-2">
+    <h3>Async pipe</h3>
+<!--    <h4>{{asyncTitle | async}}</h4>-->
+  </div>
+</div>

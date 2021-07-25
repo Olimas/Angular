@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {ConsoleService} from '../../own-service/console.service';
+import {ConsoleService} from '../own-service/console.service';
 
 @Component({
   selector: 'app-car2',

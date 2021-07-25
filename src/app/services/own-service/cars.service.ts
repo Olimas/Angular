@@ -1,3 +1,4 @@
+// Сервис для добавления машин в массив
 import {ConsoleService} from './console.service';
 import {Injectable} from '@angular/core';
 

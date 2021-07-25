@@ -1,0 +1,11 @@
+<div class="container container-block">
+  <h2>Services</h2>
+  <hr>
+  <div class="col-xs-8 col-xs-offset-2">
+    <app-car2-add></app-car2-add>
+    <div class="list-group">
+      <app-car2 *ngFor="let car of cars" [car]="car"></app-car2>
+    </div>
+  </div>
+  <hr>
+</div>
